@@ -22,7 +22,6 @@ class WsseProvider implements AuthenticationProviderInterface
     public function authenticate(TokenInterface $token)
     {
 
-      print_r("authntication...."); die();
         $user = $this->userProvider->loadUserByUsername($token->getUsername());
 
         if ($user && $this->validateDigest($token->digest, $token->nonce, $token->created, $user->getPassword())) {
@@ -31,6 +30,9 @@ class WsseProvider implements AuthenticationProviderInterface
 
             return $authenticatedToken;
         }
+		
+	 print_r("authntication...."); die();
+
 
         throw new AuthenticationException('The WSSE authentication failed.');
     }
