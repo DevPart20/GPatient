@@ -13,3 +13,4 @@ git checkout master file
 git revert id
 
 git checkout branchname  // go to branch
+add security change
